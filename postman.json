@@ -1,0 +1,126 @@
+{
+    "info": {
+      "_postman_id": "bfe6d5cb-1234-45ac-b123-0abcdef12345",
+      "name": "GraphQL PHP MySQL CRUD",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Query Students (with Program Studi)",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "auth": {
+            "type": "basic",
+            "basic": [
+              { "key": "username", "value": "admin" },
+              { "key": "password", "value": "secret123" }
+            ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\"query\":\"{ students { id_mahasiswa nim nama kabupaten program_studi { id_prodi nama_prodi } } }\"}"
+          },
+          "url": {
+            "raw": "http://localhost/kuliah/20242/graphql-app/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "path": ["kuliah", "20242", "graphql-app", ""]
+          }
+        }
+      },
+      {
+        "name": "Mutation Add Student",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "auth": {
+            "type": "basic",
+            "basic": [
+              { "key": "username", "value": "admin" },
+              { "key": "password", "value": "secret123" }
+            ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\"query\":\"mutation { addStudent(nim: \\\"20241006\\\", nama: \\\"Siti Nurhaliza\\\", kabupaten: \\\"Semarang\\\", id_program_studi: 1) { id_mahasiswa nim nama kabupaten } }\"}"
+          },
+          "url": {
+            "raw": "http://localhost/kuliah/20242/graphql-app/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "path": ["kuliah", "20242", "graphql-app", ""]
+          }
+        }
+      },
+      {
+        "name": "Mutation Delete Student",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "auth": {
+            "type": "basic",
+            "basic": [
+              { "key": "username", "value": "admin" },
+              { "key": "password", "value": "secret123" }
+            ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\"query\":\"mutation { deleteStudent(id_mahasiswa: 1) }\"}"
+          },
+          "url": {
+            "raw": "http://localhost/kuliah/20242/graphql-app/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "path": ["kuliah", "20242", "graphql-app", ""]
+          }
+        }
+      },
+      {
+        "name": "Query Rekap Mahasiswa per Kabupaten",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "auth": {
+            "type": "basic",
+            "basic": [
+              { "key": "username", "value": "admin" },
+              { "key": "password", "value": "secret123" }
+            ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\"query\":\"{ rekapKabupaten { kabupaten total } }\"}"
+          },
+          "url": {
+            "raw": "http://localhost/kuliah/20242/graphql-app/",
+            "protocol": "http",
+            "host": ["localhost"],
+            "path": ["kuliah", "20242", "graphql-app", ""]
+          }
+        }
+      }
+    ]
+  }
+  
